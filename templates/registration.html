@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <div class="main">
+        <div class="inner-main">
+            <div class="register-img">
+               
+                <img src="{% static '/images/img3.jpg' %}" alt="img" class="img-container">
+            </div>
+            <div class="register-page">
+
+                <h2 class="register-heading">REGISTRATION</h2>
+                <!-- <p class="login-p">Enter Your account details</p> -->
+                <form action="" class="register-form">
+                    <div style="display: flex;gap:10px">
+                       
+                        <div>
+                            <label class="label">First Name</label>
+                            <input  type="text" name="fname" id="" class="inputs">
+                        </div>
+                        <div>
+                            <label class="label">Last Name</label>
+                            <input type="text" name="lname" id="" class="inputs">
+                        </div>
+                    </div>
+                  
+                    <label class="label">Department</label>
+                   <select name="Department" id="" class="inputs">
+                    <option value="CSE">Computer Science</option>
+                    <option value="civil">Civil</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="EC">Electronic</option>
+                    <option value="Mec">Mechanical</option>
+                   </select>
+                    <label class="label">Email</label>
+                    <input type="Email" name="email" id="" class="inputs">
+                    <label class="label">Password</label>
+                    <input type="password" name="pswd" id="" class="inputs">
+                    <label class="label">Confirm Password</label>
+                    <input type="password" name="cpwd" id="" class="inputs"><br>
+                    <button type="submit" class="register-btn">Register</button><br>
+                    <p class="registerLink">Have an account? <span><a href="login">SignIn</a></span></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactUs</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+  </head>
+  <body>
+    <div class="main">
+      <div class="inner-main" style="justify-content: flex-start;  width: 80%; ">
+        <div class="contactUsDiv">
+          <h2 class="Contact_Header">Get In Touch</h2>
+          <div class="threebox">
+            <form action="" class="contact-Form">
+              <div style="display: flex; justify-content: space-between">
+                <div>
+                  <label for="" class="label">First Name</label>
+                  <input type="text" name="fname" id="" class="inputs" />
+                </div>
+                <div>
+                  <label for="" class="label">Last Name</label>
+                  <input type="text" name="lname" id="" class="inputs" />
+                </div>
+              </div>
+
+              <label for="" class="label">Email</label>
+              <input type="email" name="email" id="" class="inputs" />
+              <label for="" class="label">Number</label>
+              <input type="number" name="" id="" class="inputs" />
+              <label for="" class="label">Message</label>
+              <textarea name="" id="" class="contactextArea"></textarea>
+              <button type="submit" class="contactBtn">Send</button>
+            </form>
+
+            <div class="contact-info">
+              <div class="cbox1">
+                <h4>Contact Info</h4>
+                <div class="infobox">
+                    <div>
+                        <span><ion-icon name="location"></ion-icon></span>
+                        <p style="font-size: 0.9rem;"> Ahmedabad <br>INDIA</p>
+                       
+                    </div>
+                    <div>
+                        <span><ion-icon name="mail"></ion-icon> </span>
+                            <a href="mailto:loremsum@gmail.com" style="font-size: 0.9rem;">DJS124@gmail.com</a>
+                    
+                   </div>
+                    <div>
+                    <span><ion-icon name="call"></ion-icon></span>
+                        <a href="tel:+913454345654" style="font-size: 0.9rem;">+91 1234543245</a>
+                   
+                   </div>
+                <!--Social Media Links -->
+               
+                    <ul class="social">
+                        <li ><a href="https://www.facebook.com/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    </ul>
+              </div>
+              </div>
+              <div class="cbox2">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.7158046250497!2d72.54168941491945!3d23.
+              034204784947203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84c03a51c46f%3A0xa17457a0a2561268!2
+              sGovernment%20Polytechnic%20For%20Girls%20AHMEDABAD!5e0!3m2!1sen!2sin!4v1646202373683!5m2!1sen!2sin"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  width="100%"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
