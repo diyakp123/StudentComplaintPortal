@@ -77,8 +77,11 @@ WSGI_APPLICATION = 'complaintportal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'complaintPortal',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost'
     }
 }
 
@@ -119,9 +122,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join('D:\deproject\complaintportal','static')
+    os.path.join('D:/deproject/complaintportal','static')
 ]
-STATIC_ROOT = os.path.join('D:\deproject\complaintportal','assets')
+STATIC_ROOT = os.path.join('D:/deproject/complaintportal','assets')
 
 
 # Default primary key field type

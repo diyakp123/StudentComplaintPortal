@@ -20,14 +20,21 @@
 
                 <h2 class="login-heading">LOGIN</h2>
                 <p class="login-p">Enter Your account details</p>
-                <form action="" class="login-form">
+                <form action="login" class="login-form" method="POST">
 
                     {% csrf_token %}
 
                     <label for="" class="label">Email</label>
-                    <input type="email" name="email" id="" class="inputs" placeholder="Enter Email">
+                    <input type="email" name="email" id="" class="inputs" placeholder="Enter Email" required>
                     <label for="" class="label">Password</label>
-                    <input type="password" name="pwd" id="" class="inputs" placeholder="Enter password"><br>
+                    <input type="password" name="password" id="" class="inputs" placeholder="Enter password" required><br>
+                    
+                    {% for message in messages %}
+                    
+                    <label  class="label" style="color:red "> {{message}} </label>
+
+                    {% endfor %}
+
                     <button type="submit" class="login-btn">Login</button><br>
                     <p class="signUpLink">Don't Have an account? <span><a href="registration">SignUp</a></span></p>
                 </form>

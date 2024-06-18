@@ -19,33 +19,43 @@
 
                 <h2 class="register-heading">REGISTRATION</h2>
                 <!-- <p class="login-p">Enter Your account details</p> -->
-                <form action="" class="register-form">
+
+              
+
+                <form action="registration" class="register-form" method="POST">
+
+                    {% csrf_token %}
                     <div style="display: flex;gap:10px">
                        
                         <div>
                             <label class="label">First Name</label>
-                            <input  type="text" name="fname" id="" class="inputs">
+                            <input  type="text" name="fname" id="" class="inputs" required>
                         </div>
                         <div>
                             <label class="label">Last Name</label>
-                            <input type="text" name="lname" id="" class="inputs">
+                            <input type="text" name="lname" id="" class="inputs" required>
                         </div>
                     </div>
                   
                     <label class="label">Department</label>
-                   <select name="Department" id="" class="inputs">
-                    <option value="CSE">Computer Science</option>
-                    <option value="civil">Civil</option>
-                    <option value="IT">Information Technology</option>
-                    <option value="EC">Electronic</option>
-                    <option value="Mec">Mechanical</option>
+                   <select name="Department" id="" class="inputs" >
+                    <option value="1" selected>Computer Science</option>
+                    <option value="2">Civil</option>
+                    <option value="3">Information Technology</option>
+                    <option value="4">Electronic</option>
+                    <option value="5">Mechanical</option>
                    </select>
                     <label class="label">Email</label>
-                    <input type="Email" name="email" id="" class="inputs">
+                    <input type="Email" name="email" id="" class="inputs" required>
                     <label class="label">Password</label>
-                    <input type="password" name="pswd" id="" class="inputs">
+                    <input type="password" name="pswd" id="" class="inputs" required>
                     <label class="label">Confirm Password</label>
-                    <input type="password" name="cpwd" id="" class="inputs"><br>
+                    <input type="password" name="cpwd" id="" class="inputs" required><br>
+                    {% for message in messages %}
+                    
+                    <label  class="label" style="color:red "> {{message}} </label>
+
+                    {% endfor %}
                     <button type="submit" class="register-btn">Register</button><br>
                     <p class="registerLink">Have an account? <span><a href="login">SignIn</a></span></p>
                 </form>
