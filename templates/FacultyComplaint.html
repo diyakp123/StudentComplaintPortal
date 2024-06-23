@@ -1,0 +1,67 @@
+{%  load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FacultyComplaints</title>
+    <link rel="stylesheet" href="{% static '/css/style3.css' %}">
+</head>
+<body>
+    <div class="main-complaint">
+        <div class="header">
+            <div class="header-part1">
+                <ul>
+                    <!-- <li><img src="../images/logo4.png" alt="" style="background-repeat: no-repeat; background-size: cover;background-position: center; width: 100px; height: 100px;"></li> -->
+                    <li>Home</li>
+                    <li>About</li>
+                </ul>
+            </div>
+            <div class="header-part2">
+                <div class="twobtn">
+                 {% comment %}
+                       <button class="regBtn">Register</button>
+                       <button class="loginBtn">login</button>
+                 {% endcomment %}
+                </div>
+            
+            </div>
+        </div>
+        <div class="TwoBoxes">
+        <div class="inner-mains">
+            <div class="complaints-Types">
+                <button>All Complaints</button>
+                <button>Solved Complaints</button>
+                <button>Unsolved Complaints</button>
+                <button>In Progress Complaints</button>
+
+                
+            </div>
+              
+         
+
+
+        </div>
+        <div class="AllComplaints">
+            <div class="complaint1">
+                <h3>Complaint 1</h3>
+                <button>View Details</button>
+            </div>
+            {% for item in result %}
+            <div class="complaint1">
+                <h3 style="text-overflow: ellipsis;">{{ item.description }}</h3>
+                <button>View Details</button>
+            </div>
+          {% endfor %}
+          
+
+        </div>
+    </div>
+     
+    
+    </div>
+ 
+    
+</body>
+</html>

@@ -1,11 +1,42 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Complaint Page</title>
+    <link rel="stylesheet" href="{% static '/css/style3.css' %}">
 </head>
 <body>
-    complaint
+    <div class="main">
+        <div class="inner-main">
+            <div class="login-img">
+               
+                <img src="{% static '/images/complaint.jpeg' %}" alt="img" class="img-container">
+            </div>
+            <div class="login-page">
+
+                <h2 class="login-heading">COMPLAINT HERE!</h2>
+          
+                <form action="thankyou" class="complaint-form" method="POST">
+                    {% csrf_token %}
+                    <label for="" class="label">Complaint Types</label>
+                    <select name="ComplaintType" id="" class="inputs">
+                        <option value="1">Campus Problem</option>
+                        <option value="2">bullying</option>
+                       </select>
+                    <label for="" class="label">Enter Your Complaints</label>
+                    <textarea name="complaint" id="" class="complaintTxtarea"></textarea><br>
+                    <div class="checboxs">
+                        <input name="anonymous" type="checkbox" > 
+                        <h4>anonymous</h4>
+                    </div>
+                    <button type="submit" class="complaint-btn">Submit</button><br>
+                  
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -23,5 +23,5 @@ class Complaint(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField()
     anonymous = models.BooleanField()
-    status = models.ForeignKey(ComplaintStatus, on_delete=models.CASCADE)
+    status = models.ForeignKey(ComplaintStatus, default=2, on_delete=models.CASCADE)
 

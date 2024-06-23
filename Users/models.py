@@ -10,7 +10,7 @@ class Department(models.Model):
 class User(models.Model):
     first_name = models.CharField(max_length=30)
     last_name= models.CharField(max_length=30)
-    email = models.EmailField(max_length=35, unique=True)
+    email = models.EmailField(max_length=50, unique=True)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     password = models.CharField(max_length=40)
 #    confirm_password = models.CharField(max_length=40)
