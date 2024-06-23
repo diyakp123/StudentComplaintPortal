@@ -18,7 +18,16 @@ def home(request): #when user is not authenticated
     return render(request,'home.html')
 
 def dashboard(request):   #once the user is authenticated, its homepage will be the dashboard
-    return render(request,'dashboard.html')
+    if 'useremail' in request.session:
+        mail = request.session['useremail']  # mail = request.session.get('useremail', request.GET)
+        if 'userpwd' in request.session:
+            pwd = request.session['userpwd']
+            try:
+                result = User.objects.get(email=mail, password=pwd)
+                return render(request,"dashboard.html")
+            except User.DoesNotExist as e:
+                return render(request,'home')
+    return redirect('home')
 
 def login(request):
     #userid = request.

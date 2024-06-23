@@ -1,12 +1,16 @@
 from django.shortcuts import render
 
+from Users.views import dashboard
 from complaint.models import Complaint
 
 # Create your views here.
 
 
-#def feedback(request):
- #   return render(request, 'Feedback.html')
+def user(request):
+    return dashboard(request)
+
+def feedback(request):
+    return render(request, 'Feedback.html')
 
 def complaint(request):
     return render(request,'complaint.html')
