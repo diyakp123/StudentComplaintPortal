@@ -5,9 +5,6 @@ from Users.models import User
 # Create your models here.
 
 
-class Faculty(models.Model):
-    faculty_id = ('facultyid', models.BigAutoField(auto_created=True, primary_key=True, serialize=False))
-    faculty_name = models.CharField(max_length=30)
 
 class Category(models.Model):
     category_id = ('categoryid', models.BigAutoField(auto_created=True, primary_key=True, serialize=False))
@@ -24,4 +21,11 @@ class Complaint(models.Model):
     description = models.TextField()
     anonymous = models.BooleanField()
     status = models.ForeignKey(ComplaintStatus, default=2, on_delete=models.CASCADE)
+
+class Feedback(models.Model):
+    fullname = models.CharField(max_length=40)
+    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    complaintid = models.ForeignKey(Complaint, on_delete=models.CASCADE)
+    opinion = models.TextField()
+
 

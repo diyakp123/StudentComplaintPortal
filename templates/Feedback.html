@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Feedback</title>
+    <link rel="icon" href="{% static '/images/logo4.png' %}" sizes="64x64" type="image/png">
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
 
 </head>
@@ -17,6 +18,9 @@
             <div class="feedback-box">
                 <div class="box1">
                     <form action="" class="feedback-form">
+
+                        {% csrf_token %}
+
                         <label for="" class="label">Full Name</label>
                         <input type="text" name="fullname" id="" class="inputs">
                         <label for="" class="label">Email Address</label>

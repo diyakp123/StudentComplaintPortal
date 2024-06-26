@@ -16,7 +16,18 @@ class User(models.Model):
 #    confirm_password = models.CharField(max_length=40)
 
 
+class FacultyUser(models.Model):
+    facultyid = ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False))
+    facultyemail = models.EmailField(max_length=50, unique=True, default="faculty@complaintportal.com")
+    password = models.CharField(max_length=40, default="1234")
 
+
+class ContactUs(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name= models.CharField(max_length=30)
+    email = models.EmailField(max_length=50, unique=True)
+    number = models.IntegerField()
+    message = models.TextField()
 
 #class login(models.Model):
 #    email = models.EmailField(max_length=35)

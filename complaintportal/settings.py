@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'complaint.apps.ComplaintConfig',
     'Users.apps.UsersConfig',
+    'facultydashboard.apps.FacultydashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
