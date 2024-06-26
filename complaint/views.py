@@ -106,7 +106,7 @@ def StudentInprogressComplaints(request):
             password = request.session['userpwd']
             try:
                 result = User.objects.get(email=uemail, password=password)
-                result2 = Complaint.objects.filter(student=result,status=3).values()
+                result2 = Complaint.objects.filter(student=result,status_id=3).values()
                 print(result2)
                 return render(request, 'FacultyComplaint.html', {'result' : result2} )
             except User.DoesNotExist as e:
@@ -124,7 +124,7 @@ def StudentUnsolvedComplaints(request):
             password = request.session['userpwd']
             try:
                 result = User.objects.get(email=uemail, password=password)
-                result2 = Complaint.objects.filter(student=result,status=2).values()
+                result2 = Complaint.objects.filter(student=result,status_id=2).values()
                 print(result2)
                 return render(request, 'FacultyComplaint.html', {'result' : result2} )
             except User.DoesNotExist as e:
@@ -142,9 +142,9 @@ def StudentSolvedComplaints(request):
             password = request.session['userpwd']
             try:
                 result = User.objects.get(email=uemail, password=password)
-                result2 = Complaint.objects.filter(student=result,status=1).values()
+                result2 = Complaint.objects.filter(student=result,status_id=1).values()
                 print(result2)
-                return render(request, 'FacultyComplaint.html', {'result' : result2} )
+                return render(request, 'FacultyComplaint.html', {'result' : result2 } )
             except User.DoesNotExist as e:
                 print("sde")
                 return redirect( 'dashboard')
@@ -153,3 +153,11 @@ def StudentSolvedComplaints(request):
 
 def ComplaintDetail(request):
     return render(request, 'ComplaintDetail.html')
+
+def studentlogout(request):
+    try:
+        del request.session['useremail']
+        del request.session['userpwd']
+        return render(request,'studentlogout.html')  
+    except KeyError as e:
+        return redirect('home')

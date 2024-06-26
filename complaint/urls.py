@@ -10,5 +10,7 @@ urlpatterns = [
      path('StudentUnsolvedComplaints',views.StudentUnsolvedComplaints,name="StudentUnsolvedComplaints"),
      path('StudentInprogressComplaints',views.StudentInprogressComplaints,name="StudentInprogressComplaints"),
      path('thankyou', views.thankyou, name="thankyou"),
-     path('ComplaintDetail', views.ComplaintDetail, name="ComplaintDetail")
+     path('ComplaintDetail', views.ComplaintDetail, name="ComplaintDetail"),
+     path('studentlogout',views.studentlogout,name='studentlogout'),
+
 ]
