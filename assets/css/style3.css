@@ -80,10 +80,10 @@
 .complaint-form .inputs {
     outline: none;
     border-radius: 5px;
-    height: 35px;
+    height: 38px;
     border-color: #2c3e50;
     margin: 5px 0;
-    padding: 0.6rem 0.6rem;
+    /* padding: 0.2rem 0.6rem; */
 }
 .login-form .login-btn {
     background-color: #2c3e50;
@@ -151,7 +151,7 @@
   font-weight: bolder;
 }
 
-.thankDiv .backHomeBtn{
+.thankDiv  .backHomeBtn{
   background-color: #2c3e50;
   color: white;
   padding: 10px 0;
@@ -160,6 +160,18 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+  .backHomeBtn  button{
+  background-color: #2c3e50;
+  border: none;
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .backHomeBtn:hover {
   background-color: #f39c12;
 }
@@ -285,8 +297,8 @@
 }
 .TwoBoxes .AllComplaints {
   display: flex;
-  justify-content:center;
-  align-items: center;
+  justify-content:flex-start;
+  align-items:center;
   flex-direction: column;
   overflow: hidden;
   background-color: #ffffff;

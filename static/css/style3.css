@@ -297,8 +297,8 @@
 }
 .TwoBoxes .AllComplaints {
   display: flex;
-  justify-content:center;
-  align-items: center;
+  justify-content:flex-start;
+  align-items:center;
   flex-direction: column;
   overflow: hidden;
   background-color: #ffffff;

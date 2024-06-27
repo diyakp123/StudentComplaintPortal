@@ -652,7 +652,8 @@ font-size: 1rem;
   justify-content: flex-start;
  
 }
-.StudentContainer .card {
+
+.StudentContainer  .card  {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -664,8 +665,16 @@ font-size: 1rem;
   border-radius: 1em;
   box-shadow: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* transition: width 0.3s ease, border-radius 0.3s ease;
+  box-sizing: border-box; */
 }
-.StudentContainer .card .btnContainer button {
+/* .StudentContainer  .card:hover {
+  width: 58%;
+  border-radius: 2em;
+} */
+
+
+.StudentContainer .card  .btnContainer button  {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -682,6 +691,7 @@ font-size: 1rem;
   color: #ecf0f1;
   letter-spacing: 0.5px;
 }
+
 
 
 .StudentContainer .card .imgcontainer {
