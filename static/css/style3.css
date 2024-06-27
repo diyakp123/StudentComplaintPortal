@@ -280,7 +280,7 @@
   flex-direction: column;
 }
 
-.complaints-Types button {
+.complaints-Types a {
 
   width: 62%;
   height: 12%;
@@ -290,11 +290,30 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  text-align: center;
+  padding-top: 8%;
+  font-size: 0.9rem;
+
+}
+
+.complaints-Types a button{
+  text-decoration: none; 
+  background-color: #2c3e50;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
   font-size: 0.9rem;
 }
-.complaints-Types button:hover {
-  background-color: #555;
+
+.complaints-Types a:hover {
+  padding-top: 9.5%;
+  width: 66%;
+  height: 11vh;
 }
+
+
 .TwoBoxes .AllComplaints {
   display: flex;
   justify-content:flex-start;
@@ -355,7 +374,6 @@
   background-color: #2c3e50;
   color: white;
 }
-
 
 
 

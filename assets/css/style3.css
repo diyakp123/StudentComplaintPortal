@@ -292,6 +292,11 @@
   border-radius: 5px;
   font-size: 0.9rem;
 }
+
+.complaints-Types button a{
+  text-decoration: none;
+}
+
 .complaints-Types button:hover {
   background-color: #555;
 }

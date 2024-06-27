@@ -15,17 +15,19 @@
             <div class="header-part1">
                 <ul>
                     <li><img src="{% static '/images/logo4.png' %}" alt="" style="background-repeat: no-repeat; background-size: cover;background-position: center; width: 100px; height: 100px;"></li>
-                    <li>Home</li>
+                    <li><a href="/" style="text-decoration: none; color: #f39c12;">Home</a></li>
                     <li>About</li>
                 </ul>
             </div>
             <div class="header-part2">
                 <div class="twobtn">
-                    <a href="registration">
-                    <button class="regBtn">Register</button>
-                    </a>
-                    <a href="roles">
-                    <button class="loginBtn">login</button>
+                    {% comment %}
+                        <a href="registration">
+                        <button class="regBtn">Register</button>
+                        </a>
+                    {% endcomment %}
+                    <a href="facultylogout">
+                    <button class="loginBtn">logout</button>
                     </a>
                 </div>
                 
@@ -34,12 +36,14 @@
         </div>
         <div class="inner-mains">
             <div class="FileComplaintdiv">
-                <button><a href="studentlogin">File A Complaint</a></button>
+                <button><a href="facultydashboard/FacultyAllComplaints">View Complaints</a></button>
             </div>
-            <div class="imgContainer">
-                <img src="{% static '/images/complaint2.jpg' %}" alt="complaint">
-
-            </div>
+            {% comment %}
+                <div class="imgContainer">
+                    <img src="{% static '/images/complaint2.jpg' %}" alt="complaint">
+    
+                </div>
+            {% endcomment %}
         </div>
     </div>
 </body>

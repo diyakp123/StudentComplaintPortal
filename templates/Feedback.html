@@ -17,7 +17,7 @@
 
             <div class="feedback-box">
                 <div class="box1">
-                    <form action="" class="feedback-form">
+                    <form action="/dashboard/feedbacksubmit" class="feedback-form" method="POST">
 
                         {% csrf_token %}
 
@@ -27,6 +27,7 @@
                         <input type="email" name="eid" id="" class="inputs">
                         <label for="" class="label">Your Opinion</label><br>
                         <textarea name="opinion" id="" class="feedbacktextArea"></textarea><br>
+                        <input type="hidden" name="id" value="{{id}}"></input>
                         <button type="submit" class="feedbackBtn">Submit</button>
 
                     </form>

@@ -25,7 +25,7 @@ class FacultyUser(models.Model):
 class ContactUs(models.Model):
     first_name = models.CharField(max_length=30)
     last_name= models.CharField(max_length=30)
-    email = models.EmailField(max_length=50, unique=True)
+    email = models.EmailField(max_length=50)
     number = models.IntegerField()
     message = models.TextField()
 

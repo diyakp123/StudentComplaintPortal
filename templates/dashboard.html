@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home2</title>
+    <link rel="icon" href="{% static '/images/logo4.png' %}" sizes="64x64" type="image/png">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
 </head>
 <body>
@@ -14,13 +15,15 @@
             <div class="header-part1">
                 <ul>
                     <li><img src="{% static '/images/logo4.png' %}" alt="" style="background-repeat: no-repeat; background-size: cover;background-position: center; width: 100px; height: 100px;"></li>
-                    <li>Home</li>
+                    <li><a href="/" style="text-decoration: none; color: #f39c12;">Home</a></li>
                     <li>About</li>
                 </ul>
             </div>
             <div class="header-part2">
                 <div class="twobtn">
-                    <button class="regBtn">Register</button>
+                   {% comment %}
+                     <button class="regBtn">Register</button>
+                   {% endcomment %}
                     <a href="studentlogout">
                     <button class="loginBtn">logout</button>
                     </a>
@@ -34,10 +37,10 @@
         </div>
         <div class="inner-mains2">
             <div class="FileComplaintdiv">
-                <button><a href="">File A Complaint</a></button>
+                <button><a href="dashboard/complaint">File A Complaint</a></button>
             </div>
             <div class="FileComplaintdiv2">
-                <button><a href="">View Complaint History</a></button>
+                <button><a href="dashboard/StudentComplaintHistory">View Complaint History</a></button>
             </div>
           
           

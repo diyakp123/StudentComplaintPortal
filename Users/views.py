@@ -59,6 +59,27 @@ def studentlogin(request):
     #userid = request.
   #  if(userauthenticated)
  #       return dashboard
+    if 'useremail' in request.session:
+        mail = request.session['useremail']  # mail = request.session.get('useremail', request.GET)
+        if 'userpwd' in request.session:
+            pwd = request.session['userpwd']
+            try:
+                result = User.objects.get(email=mail, password=pwd)
+                return redirect('dashboard')
+            except User.DoesNotExist as e:
+                return redirect(request,'home')
+            
+    if 'facultyemail' in request.session:
+        facultyemail = request.session['facultyemail']  # mail = request.session.get('useremail', request.GET)
+        if 'facultypwd' in request.session:
+            password = request.session['facultypwd']
+            try:
+                result = FacultyUser.objects.get(facultyemail=facultyemail, password=password)
+                return redirect('facultydashboard')
+
+            except User.DoesNotExist as e:
+                return redirect(request,'home')
+            
     if(request.method == 'POST'):
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -81,16 +102,6 @@ def studentlogin(request):
             return render(request,'dashboard.html')
         else:
             return render(request,'login.html')''' #send a pop up or error message along with it
-    if 'useremail' in request.session:
-        mail = request.session['useremail']  # mail = request.session.get('useremail', request.GET)
-        if 'userpwd' in request.session:
-            pwd = request.session['userpwd']
-            try:
-                result = User.objects.get(email=mail, password=pwd)
-                return redirect('dashboard')
-
-            except User.DoesNotExist as e:
-                return render(request,'studentlogin')
             
 
     return render(request,'studentlogin.html')
@@ -174,9 +185,50 @@ def contactus(request):
     return render(request,'contactUs.html')
 
 def roles(request):
+    if 'useremail' in request.session:
+        mail = request.session['useremail']  # mail = request.session.get('useremail', request.GET)
+        if 'userpwd' in request.session:
+            pwd = request.session['userpwd']
+            try:
+                result = User.objects.get(email=mail, password=pwd)
+                return redirect('dashboard')
+            except User.DoesNotExist as e:
+                return redirect(request,'home')
+            
+    if 'facultyemail' in request.session:
+        facultyemail = request.session['facultyemail']  # mail = request.session.get('useremail', request.GET)
+        if 'facultypwd' in request.session:
+            password = request.session['facultypwd']
+            try:
+                result = FacultyUser.objects.get(facultyemail=facultyemail, password=password)
+                return redirect('facultydashboard')
+
+            except User.DoesNotExist as e:
+                return redirect(request,'home')
     return render(request, 'roles.html')
 
 def facultylogin(request):
+    if 'useremail' in request.session:
+        mail = request.session['useremail']  # mail = request.session.get('useremail', request.GET)
+        if 'userpwd' in request.session:
+            pwd = request.session['userpwd']
+            try:
+                result = User.objects.get(email=mail, password=pwd)
+                return redirect('dashboard')
+            except User.DoesNotExist as e:
+                return redirect(request,'home')
+            
+    if 'facultyemail' in request.session:
+        facultyemail = request.session['facultyemail']  # mail = request.session.get('useremail', request.GET)
+        if 'facultypwd' in request.session:
+            password = request.session['facultypwd']
+            try:
+                result = FacultyUser.objects.get(facultyemail=facultyemail, password=password)
+                return redirect('facultydashboard')
+
+            except User.DoesNotExist as e:
+                return redirect(request,'home')
+            
     if(request.method == 'POST'):
         facultyemail = request.POST.get('facultyemail')
         password = request.POST.get('facultypwd')
@@ -193,16 +245,7 @@ def facultylogin(request):
             #print("user doesnt exist")
             return redirect('facultylogin')
         
-    if 'facultyemail' in request.session:
-        #mail = request.session['facultyemail']  # mail = request.session.get('useremail', request.GET)
-        if 'facultypwd' in request.session:
-            #pwd = request.session['facultypwd']
-            try:
-                result = FacultyUser.objects.get(facultyemail=facultyemail, password=password)
-                return redirect('facultydashboard')
-
-            except User.DoesNotExist as e:
-                return render(request,'facultylogin')
+   
             
 
     return render(request,'facultylogin.html')
@@ -218,7 +261,7 @@ def Facultydashboard(request):
         #result = FacultyUser.objects.get(email=uemail, password=password)
                 result2 = Complaint.objects.values()
                 print(result2)
-                return render(request, 'FacultyComplaint.html', {'result' : result2} )
+                return render(request, 'facultydashboard.html', {'result' : result2} )
             except User.DoesNotExist as e:
                 print("sde")
                 return render(request, 'dashboard')

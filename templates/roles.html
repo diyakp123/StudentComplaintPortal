@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles</title>
+    <link rel="icon" href="{% static '/images/logo4.png' %}" sizes="64x64" type="image/png">
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
 <body>
@@ -14,20 +15,22 @@
             <div class="header-part1">
                 <ul>
                     <li>Logo</li>
-                    <li>Home</li>
+                    <li><a href="/" style="text-decoration: none; color: #f39c12;">Home</a></li>
                     <li>About</li>
                 </ul>
             </div>
             <div class="header-part2">
                 <div class="twobtn">
-                    <button class="regBtn">Register</button>
+                    <a href="registration">
+                        <button class="regBtn">Register</button>
+                        </a>
                     <button class="loginBtn">login</button>
                 </div>
             </div>
         </div>
         <div class="inner-mains">
             <div class="StudentContainer">
-                <a href="" class="card"  style="text-decoration: none;">
+                <a href="studentlogin" class="card"  style="text-decoration: none;">
             
                     <div class="btnContainer">
                         <button>Student</button>
@@ -40,7 +43,7 @@
             </a>
             </div>
             <div class="TeacherContainer">
-                <a href="" class="card"  style="text-decoration: none;">
+                <a href="facultylogin" class="card"  style="text-decoration: none;">
                
                     <div class="btnContainer">
                         <button>Teacher</button>

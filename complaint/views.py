@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 
 from Users.models import Department, User
 from Users.views import dashboard
-from complaint.models import Category, Complaint, Feedback
+from complaint.models import Category, Complaint, ComplaintStatus, Feedback
 
 # Create your views here.
 
@@ -12,20 +12,23 @@ from complaint.models import Category, Complaint, Feedback
 def user(request):
     return dashboard(request)
 
-def feedback(request):
+def feedback(request,id):
+    return render(request, 'Feedback.html', {'id' : id})
 
-    if(request.method == "POST"):
+def feedbacksubmit(request):
+     if(request.method == "POST"):
         uemail = request.session['useremail']
         password = request.session['userpwd']
 
-        fname = request.POST['fname']
-        email = request.POST['email']
-        message = request.POST['message']
-        complaintid = request.session['complaintid']
+        fname = request.POST['fullname']
+        email = request.POST['eid']
+        message = request.POST['opinion']
+        complaintid = request.POST['id']
+        print(complaintid)
         try:
             result = User.objects.get(email=uemail, password=password)
             complaint = Complaint.objects.get(id = complaintid)
-            feedback = Feedback(fullname= fname, email=email, complaintid=complaintid,opinion=message)
+            feedback = Feedback(fullname= fname, email=result, complaintid=complaint,opinion=message)
             feedback.save()
             return render(request, 'showdata.html',{'result' : "Feedback successfully sent"})
 
@@ -33,8 +36,6 @@ def feedback(request):
             print("e")
             return render(request, 'Feedback.html')
       
-
-    return render(request, 'Feedback.html')
 
 def complaint(request):
     return render(request,'complaint.html')
@@ -51,7 +52,7 @@ def StudentComplaintHistory(request):
                 result = User.objects.get(email=uemail, password=password)
                 result2 = Complaint.objects.filter(student=result).values()
                 print(result2)
-                return render(request, 'FacultyComplaint.html', {'result' : result2} )
+                return render(request, 'StudentComplaint.html', {'result' : result2, 'val' : 'All Complaints'} )
             except User.DoesNotExist as e:
                 print("sde")
                 return redirect( 'dashboard')
@@ -108,7 +109,7 @@ def StudentInprogressComplaints(request):
                 result = User.objects.get(email=uemail, password=password)
                 result2 = Complaint.objects.filter(student=result,status_id=3).values()
                 print(result2)
-                return render(request, 'FacultyComplaint.html', {'result' : result2} )
+                return render(request, 'StudentComplaint.html', {'result' : result2, 'val' : 'All InProgress Complaints'} )
             except User.DoesNotExist as e:
                 print("sde")
                 return redirect( 'dashboard')
@@ -126,7 +127,7 @@ def StudentUnsolvedComplaints(request):
                 result = User.objects.get(email=uemail, password=password)
                 result2 = Complaint.objects.filter(student=result,status_id=2).values()
                 print(result2)
-                return render(request, 'FacultyComplaint.html', {'result' : result2} )
+                return render(request, 'StudentComplaint.html', {'result' : result2, 'val' : 'All Unsolved Complaints'} )
             except User.DoesNotExist as e:
                 print("sde")
                 return redirect( 'dashboard')
@@ -144,15 +145,50 @@ def StudentSolvedComplaints(request):
                 result = User.objects.get(email=uemail, password=password)
                 result2 = Complaint.objects.filter(student=result,status_id=1).values()
                 print(result2)
-                return render(request, 'FacultyComplaint.html', {'result' : result2 } )
+                return render(request, 'StudentComplaint.html', {'result' : result2 , 'val' : 'All Solved Complaints'} )
             except User.DoesNotExist as e:
                 print("sde")
                 return redirect( 'dashboard')
     
     return redirect( 'dashboard')
 
-def ComplaintDetail(request):
-    return render(request, 'ComplaintDetail.html')
+
+def StudentComplaintDetail(request, id):
+
+    result2 = Complaint.objects.filter(id=id).values()  
+    print(result2)
+
+    description = result2[0]['description']
+
+    userdetails = User.objects.get(id=result2[0]['student_id'])
+    userdet =  userdetails.first_name
+
+    departmentobj = userdetails.department
+    depts =  departmentobj.dept_name
+
+    cattype = Category.objects.get(id=result2[0]['category_id'])
+    type = cattype.category_name
+
+    statustype = ComplaintStatus.objects.get(id=result2[0]['status_id'])
+    status = statustype.status_name
+    
+    cid = result2[0]['id']
+    print(cid)
+    ''' datetimedata = result2[0]['complaint_dateTime']
+    dd = datetime(datetimedata)
+   
+    print( dd.date)
+    '''
+    
+    
+    
+    if result2[0]['anonymous'] == True:
+        print("hey")
+        userdet = "anonymous"
+        depts = "anonymous"
+
+    return render(request, 'ComplaintDetail.html',{ 'desc': description ,'type' : type , 'user' : userdet, 'deptobj' : depts,'status' : status, 'cid' : cid})
+
 
 def studentlogout(request):
     try:
