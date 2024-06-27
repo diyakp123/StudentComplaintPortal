@@ -42,7 +42,9 @@
         </div>
         
         <div>
-            
+            {% block cid %}
+            <button><a href="{% url 'feedback' id=cid %}">give feedback</a></button>
+           {% endblock %}
         </div>
         </div>
     </div>

@@ -187,7 +187,7 @@ def StudentComplaintDetail(request, id):
         userdet = "anonymous"
         depts = "anonymous"
 
-    return render(request, 'ComplaintDetail.html',{ 'desc': description ,'type' : type , 'user' : userdet, 'deptobj' : depts,'status' : status, 'cid' : cid})
+    return render(request, 'StudentComplaintDetail.html',{ 'desc': description ,'type' : type , 'user' : userdet, 'deptobj' : depts,'status' : status, 'cid' : cid})
 
 
 def studentlogout(request):
