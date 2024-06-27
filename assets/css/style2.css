@@ -110,7 +110,7 @@
     display: flex;
     justify-content: center;
   }
-  .FileComplaintdiv button {
+  .FileComplaintdiv a button {
     outline: none;
     border: none;
     background-color: #2c3e50;

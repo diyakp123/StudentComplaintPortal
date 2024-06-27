@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <style>
+        .error-label {
+            color: red;
+            /* text-align: center; */
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="main">
@@ -18,7 +26,7 @@
             </div>
             <div class="login-page">
 
-                <h2 class="login-heading">LOGIN</h2>
+                <h2 class="login-heading">STUDENT LOGIN</h2>
                 <p class="login-p">Enter Your account details</p>
                 <form action="studentlogin" class="login-form" method="POST">
 
@@ -31,7 +39,7 @@
                     
                     {% for message in messages %}
                     
-                    <label  class="label" style="color:red "> {{message}} </label>
+                    <label  class="error-label"> {{message}} </label>
 
                     {% endfor %}
 
