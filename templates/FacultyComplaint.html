@@ -9,6 +9,9 @@
     <link rel="icon" href="{% static '/images/logo4.png' %}" sizes="64x64" type="image/png">
     <link rel="stylesheet" href="{% static '/css/style3.css' %}"> 
     <style>
+        .allcomplaints2 {
+            padding: 20px 0;
+        }
           .headers {
              display: flex;
              justify-content:center;
@@ -50,9 +53,9 @@
             }
 
             .formsData .inputs {
-                width: 50%;
+                width: 100%;
                 height: 100%;
-                padding: 5px 10px;
+                padding: 5px 30px;
                 border-radius: 5px;
                 border-width: 2px;
                 border-color: #2c3e50;
@@ -113,7 +116,8 @@
             <h3 style="text-overflow: ellipsis; ">{{ val }}</h3>
             
             </div>
-            <form action="" class="formsData">
+            <form action="FacultyFilterData" class="formsData" method="POST" >
+                {% csrf_token %}
                 <select name="ComplaintType" id="" class="inputs">
                     <option value="1">Campus Problem</option>
                     <option value="2">bullying</option>
@@ -121,26 +125,28 @@
                     <option value="4">canteen</option>
                     <option value="5">other</option>
                    </select>
+                   <input type="hidden" value="{{ val }}" name="status"></input>
+                   {% comment %}
+                    <select name="ComplaintType" id="" class="inputs">
+                     <option value="1">Computer Science</option>
+                     <option value="2">Information Technology</option>
+                     <option value="3">Civil Engineering</option>
+                     <option value="4">Mechanical</option>
+                     <option value="5">Architecture</option>
+                    </select>
+                   {% endcomment %}
 
-                   <select name="ComplaintType" id="" class="inputs">
-                    <option value="1">Computer Science</option>
-                    <option value="2">Information Technology</option>
-                    <option value="3">Civil Engineering</option>
-                    <option value="4">Mechanical</option>
-                    <option value="5">Architecture</option>
-                   </select>
-
-                   <a href=""><button>Filter</button></a>
+                   <a><button type="submit">Filter</button></a>
 
             </form>
-            
+            <div class="AllComplaints allcomplaints2">
             {% for item in result %}
             <div class="complaint1">
                 <h3 style="text-overflow: ellipsis; ">{{ item.description }}</h3>
              <button>   <a href=" {% url 'ComplaintDetail' id=item.id %}" style="text-decoration: none; color: white;">View Details</a></button>
             </div>
           {% endfor %}
-          
+        </div>
 
         </div>
     </div>

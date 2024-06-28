@@ -88,6 +88,40 @@ def FacultyInprogressComplaints(request):
     return redirect('home')
 
 
+def FacultyFilterData(request):
+    if 'facultyemail' in request.session:
+        if 'facultypwd' in request.session:
+           try:
+                #email = request.POST.get('email')
+                #password = request.POST.get('password') 
+                #result = User.objects.get(email=email, password=password)
+
+                status = request.POST.get('status')
+                category = request.POST.get('ComplaintType') 
+
+                if status=="All InProgress Complaints":
+                    status_id=3
+                    statusobj = ComplaintStatus.objects.get(id=status_id)
+                    result2 = Complaint.objects.filter(status=statusobj, category=category).values()
+                elif status=="All Solved Complaints":
+                    status_id=1
+                    statusobj = ComplaintStatus.objects.get(id=status_id)
+                    result2 = Complaint.objects.filter(status=statusobj, category=category).values()
+                elif status=="All Unsolved Complaints":
+                    status_id=2
+                    statusobj = ComplaintStatus.objects.get(id=status_id)
+                    result2 = Complaint.objects.filter(status=statusobj, category=category).values()
+                else:
+                    result2 = Complaint.objects.filter(category=category).values()
+                print(status)
+                return render(request, 'FacultyComplaint.html', {'result' : result2, 'val' : status} )
+           except User.DoesNotExist as e:
+                print("sde")
+                return render(request, 'dashboard')
+
+    return redirect('home')
+
+
 def ComplaintDetail(request, id):
 
     result2 = Complaint.objects.filter(id=id).values()  
@@ -112,7 +146,8 @@ def ComplaintDetail(request, id):
    
     print( dd.date)
     '''
-    
+    cid = result2[0]['id']
+   
     
     
     if result2[0]['anonymous'] == True:
@@ -120,4 +155,13 @@ def ComplaintDetail(request, id):
         userdet = "anonymous"
         depts = "anonymous"
 
-    return render(request, 'ComplaintDetail.html',{ 'desc': description ,'type' : type , 'user' : userdet, 'deptobj' : depts,'status' : status})
+    return render(request, 'ComplaintDetail.html',{ 'desc': description ,'type' : type , 'user' : userdet, 'deptobj' : depts,'status' : status, 'cid':cid})
+
+
+
+
+def ComplaintReceived(request,id):
+    complaint = complaint = Complaint.objects.get(id = id)
+    complaint.status = ComplaintStatus.objects.get(status_name="inprogress")
+    complaint.save()
+    return redirect('/')

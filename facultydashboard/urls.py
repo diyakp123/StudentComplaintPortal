@@ -7,5 +7,7 @@ urlpatterns = [
     path('FacultySolvedComplaints',views.FacultySolvedComplaints,name="FacultySolvedComplaints"),
     path('FacultyUnsolvedComplaints',views.FacultyUnsolvedComplaints,name="FacultyUnsolvedComplaints"),
     path('FacultyInprogressComplaints',views.FacultyInprogressComplaints,name="FacultyInprogressComplaints"),
-    path('ComplaintDetail/<int:id>', views.ComplaintDetail, name="ComplaintDetail")
+    path('ComplaintDetail/<int:id>', views.ComplaintDetail, name="ComplaintDetail"),
+    path('FacultyFilterData',views.FacultyFilterData, name="FacultyFilterData"),
+    path('ComplaintReceived/<int:id>',views.ComplaintReceived, name="ComplaintReceived")
 ]

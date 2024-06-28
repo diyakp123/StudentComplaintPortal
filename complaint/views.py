@@ -153,6 +153,49 @@ def StudentSolvedComplaints(request):
     return redirect( 'dashboard')
 
 
+def FilterData(request):
+    if 'useremail' in request.session:
+        #mail = request.session['useremail']  # mail = request.session.get('useremail', request.GET)
+        if 'userpwd' in request.session:
+            #pwd = request.session['userpwd']
+            uemail = request.session['useremail']
+            password = request.session['userpwd']
+            try:
+                result = User.objects.get(email=uemail, password=password)
+              
+
+                status = request.POST.get('status')
+                category = request.POST.get('ComplaintType') 
+              
+                print(status)
+
+                if status=="All InProgress Complaints":
+                    status_id=3
+                    statusobj = ComplaintStatus.objects.get(id=status_id)
+                    result2 = Complaint.objects.filter(student=result,status=statusobj, category=category).values()
+                elif status=="All Solved Complaints":
+                    status_id=1
+                    statusobj = ComplaintStatus.objects.get(id=status_id)
+                    result2 = Complaint.objects.filter(student=result,status=statusobj, category=category).values()
+                elif status=="All Unsolved Complaints":
+                    status_id=2
+                    statusobj = ComplaintStatus.objects.get(id=status_id)
+                    result2 = Complaint.objects.filter(student=result,status=statusobj, category=category).values()
+                else:
+                    result2 = Complaint.objects.filter(student=result,category=category).values()
+                
+                print(category)
+                print(result2)
+                return render(request, 'StudentComplaint.html', {'result' : result2, 'val' : status} )
+            except User.DoesNotExist as e:
+                print("sde")
+                return render(request, 'dashboard')
+
+    return redirect('home')
+
+
+
+
 def StudentComplaintDetail(request, id):
 
     result2 = Complaint.objects.filter(id=id).values()  

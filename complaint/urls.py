@@ -14,5 +14,6 @@ urlpatterns = [
     path('thankyou', views.thankyou, name="thankyou"),
     path('StudentComplaintDetail/<int:id>', views.StudentComplaintDetail, name="StudentComplaintDetail"),
     path('studentlogout',views.studentlogout,name='studentlogout'),
+    path('FilterData', views.FilterData,name="FilterData")
 
 ]
