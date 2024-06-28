@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComplaintDetails</title>
     <link rel="icon" href="{% static '/images/logo4.png' %}" sizes="64x64" type="image/png">
-    <link rel="stylesheet" href="{% static 'css/style4.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style5.css' %}">
 </head>
 <body>
     <div class="main">
@@ -20,30 +20,29 @@
                 <div class="data"><p>{{user}}</p></div>
               
             </div>
-            <div class="depContainer">
+            <div class="unameContainer">
                 <h3>Department</h3>
                <div class="data"><p>{{deptobj}}</p></div>
                 
             </div>
-        </div>
 
-        <div class="SecContainer">
-            <h3>Type Of Complaint</h3>
-            <div class="data"><p>{{type}}</p></div>
-         
-        </div>
-        <div class="SecContainer">
-            <h3>status</h3>
-            <div class="data"><p>{{status}}</p></div>
-         
-        </div>
+            <div class="unameContainer">
+                <h3>Type Of Complaint</h3>
+                <div class="data"><p>{{type}}</p></div>
+              
+            </div>
+            <div class="unameContainer">
+                <h3>status</h3>
+               <div class="data"><p>{{status}}</p></div>     
+            </div>     
+        </div> 
         <div class="ThirdView">
             <p>{{desc}}</p>
         </div>
         
         <div>
             {% block cid %}
-            <button><a href="{% url 'feedback' id=cid %}">give feedback</a></button>
+            <a href="{% url 'feedback' id=cid %}" style="text-decoration: none; color: white;"><button class="giveFeedBackBtn" style="color: white;">give feedback</button></a>
            {% endblock %}
         </div>
         </div>

@@ -16,6 +16,7 @@
   
   
   }
+  
   .main-header .header {
     display: flex;
     justify-content:space-between;
@@ -405,6 +406,7 @@
   .header .header-part1 ul  {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   .header-part1 ul li {
     text-decoration: none;

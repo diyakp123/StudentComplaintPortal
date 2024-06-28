@@ -538,12 +538,14 @@ font-size: 1rem;
 .header .header-part1 ul  {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .header-part1 ul li {
   text-decoration: none;
   list-style-type: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 10px;
   font-size: 1rem;
   color:#f39c12

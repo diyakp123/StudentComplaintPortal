@@ -8,13 +8,66 @@
     <title>FacultyComplaints</title>
     <link rel="icon" href="{% static '/images/logo4.png' %}" sizes="64x64" type="image/png">
     <link rel="stylesheet" href="{% static '/css/style3.css' %}">
+    <style>
+        .allcomplaints2 {
+            padding: 20px 0;
+        }
+        .headers {
+             display: flex;
+             justify-content:center;
+             align-items: center;
+             width: 100%;
+             height: 3.5em;
+             background-color: white;
+             padding: 0 20px;
+             overflow: hidden;
+             background-color: #2c3e50;
+            }
+            .headers h3 {
+                    font-size: 1rem;
+                    color: white;
+                    letter-spacing: 1.2px;
+            }
+            .formsData {
+                display: flex;
+                justify-content: space-around;
+               gap:30px  
+            }
+
+            .formsData a button{
+                text-decoration: none;
+                background-color: #2c3e50;
+                padding: 7px 20px;
+                cursor: pointer;
+                color: white;
+                font-size: 1rem;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+            }
+            .formsData a button:hover {
+                background-color: #f39c12;
+                padding: 8px 22px;     
+            }
+
+            .formsData .inputs {
+                width: 50%;
+                height: 100%;
+                padding: 5px 10px;
+                border-radius: 5px;
+                border-width: 2px;
+                border-color: #2c3e50;
+                cursor: pointer
+            }  
+    </style>
 </head>
 <body>
     <div class="main-complaint">
         <div class="header">
             <div class="header-part1">
                 <ul>
-                    <!-- <li><img src="../images/logo4.png" alt="" style="background-repeat: no-repeat; background-size: cover;background-position: center; width: 100px; height: 100px;"></li> -->
+                    <li><img src="{% static '/images/logo4.png' %}" alt="" style="background-repeat: no-repeat; background-size: cover;background-position: center; width: 50px; height: 50px;"></li>
+
                     <li><a href="/" style="text-decoration: none; color: #f39c12;">Home</a></li>
                     <li>About</li>
                 </ul>
@@ -50,27 +103,41 @@
 
         </div>
         <div class="AllComplaints">
-            <div class="" style= "">
+            <div class="headers" >
           
             <h3 style="text-overflow: ellipsis; ">{{ val }}</h3>
             
             </div>
+            <form action="" class="formsData">
+                <select name="ComplaintType" id="" class="inputs">
+                    <option value="1">Campus Problem</option>
+                    <option value="2">bullying</option>
+                    <option value="3">faculty</option>
+                    <option value="4">canteen</option>
+                    <option value="5">other</option>
+                   </select>
+
+                   <select name="ComplaintType" id="" class="inputs">
+                    <option value="1">Computer Science</option>
+                    <option value="2">Information Technology</option>
+                    <option value="3">Civil Engineering</option>
+                    <option value="4">Mechanical</option>
+                    <option value="5">Architecture</option>
+                   </select>
+
+                   <a href=""><button>Filter</button></a>
+
+            </form>
             
-            <select name="ComplaintType" id="" class="inputs">
-                <option value="1">Campus Problem</option>
-                <option value="2">bullying</option>
-                <option value="3">faculty</option>
-                <option value="4">canteen</option>
-                <option value="5">other</option>
-               </select>
+         
         
         
         
-        <div class="AllComplaints">
+        <div class="AllComplaints allcomplaints2">
             {% for item in result %}
             <div class="complaint1">
                 <h3 style="text-overflow: ellipsis; ">{{ item.description }}</h3>
-                <button><a href=" {% url 'StudentComplaintDetail' id=item.id %}">View Details</a></button>
+                <button><a href=" {% url 'StudentComplaintDetail' id=item.id %}" style="text-decoration: none; color: white;">View Details</a></button>
             </div>
           {% endfor %}
           
